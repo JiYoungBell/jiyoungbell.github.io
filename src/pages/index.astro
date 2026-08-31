@@ -1,0 +1,149 @@
+---
+import '../styles/global.css';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="description" content="Jiyoung's field notes on self-hosted systems, software, and live audio." />
+		<meta name="theme-color" content="#eceae4" />
+		<link rel="canonical" href={new URL(Astro.url.pathname, Astro.site)} />
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content="Jiyoung — Systems & Audio" />
+		<meta property="og:description" content="Field notes on self-hosted systems, software, and live audio." />
+		<meta property="og:url" content={Astro.site} />
+		<meta name="twitter:card" content="summary" />
+		<meta name="twitter:title" content="Jiyoung — Systems & Audio" />
+		<meta name="twitter:description" content="Field notes on self-hosted systems, software, and live audio." />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Jiyoung — Systems & Audio</title>
+	</head>
+	<body>
+		<div class="sheet">
+			<header class="document-head">
+				<a class="wordmark" href="#top" aria-label="Jiyoung home">JIYOUNG.WIN</a>
+				<div class="document-meta" aria-label="Document information">
+					<span>FIELD NOTE</span>
+					<span>REV.01</span>
+					<span>2026</span>
+				</div>
+			</header>
+
+			<main id="top">
+				<section class="cover" aria-labelledby="page-title">
+					<div class="cover-index" aria-hidden="true">00</div>
+					<div class="cover-copy">
+						<p class="eyebrow">PERSONAL TECHNICAL INDEX / SEOUL</p>
+						<h1 id="page-title">Systems are easier<br />to understand in motion.</h1>
+						<p class="intro">Notes on the infrastructure I maintain, the software I write, and the audio systems I continue to study.</p>
+					</div>
+
+					<nav class="index" aria-label="Page index">
+						<a href="#home-server"><span>01</span> Home Server</a>
+						<a href="#audio"><span>02</span> Audio / Technical</a>
+						<a href="#about"><span>03</span> About</a>
+					</nav>
+
+					<div class="signal-map" aria-label="System flow: input to system to output">
+						<div class="signal-node"><i></i><span>INPUT</span></div>
+						<div class="signal-line"><b>01</b></div>
+						<div class="signal-node central"><i></i><span>SYSTEM</span></div>
+						<div class="signal-line"><b>02</b></div>
+						<div class="signal-node"><i></i><span>OUTPUT</span></div>
+					</div>
+				</section>
+
+				<section class="chapter" id="home-server" aria-labelledby="server-title">
+					<div class="chapter-number" aria-hidden="true">01</div>
+					<header class="chapter-head">
+						<p class="eyebrow">SYSTEM / SELF-HOSTED INFRASTRUCTURE</p>
+						<h2 id="server-title">Home Server</h2>
+						<p>A small Ubuntu environment for services I want to run, inspect, and maintain myself. It is practical infrastructure rather than a scale exercise.</p>
+					</header>
+
+					<div class="spec-list" aria-label="Home server components">
+						<div><span>HOST</span><strong>Ubuntu Server</strong></div>
+						<div><span>RUNTIME</span><strong>Docker Compose</strong></div>
+						<div><span>EDGE</span><strong>DNS / Reverse Proxy</strong></div>
+						<div><span>USE</span><strong>Web Services / Storage</strong></div>
+					</div>
+
+					<div class="flow-panel server-flow" role="img" aria-label="Internet flows through DNS and reverse proxy into Docker services and storage on Ubuntu">
+						<div class="flow-legend"><span>FIG.01</span><span>REQUEST PATH</span></div>
+						<div class="flow-track">
+							<div class="flow-item external"><i></i><small>IN</small><b>Internet</b></div>
+							<div class="connector"><span>DNS</span></div>
+							<div class="flow-item"><i></i><small>EDGE</small><b>Reverse proxy</b></div>
+							<div class="connector"><span>HTTP</span></div>
+							<div class="flow-item host"><i></i><small>HOST</small><b>Ubuntu</b></div>
+						</div>
+						<div class="branch-grid">
+							<div><i></i><span>01</span><b>Web services</b></div>
+							<div><i></i><span>02</span><b>Tools</b></div>
+							<div><i></i><span>03</span><b>Storage</b></div>
+						</div>
+					</div>
+				</section>
+
+				<section class="chapter" id="audio" aria-labelledby="audio-title">
+					<div class="chapter-number" aria-hidden="true">02</div>
+					<header class="chapter-head">
+						<p class="eyebrow">SIGNAL / LIVE AUDIO SYSTEMS</p>
+						<h2 id="audio-title">Audio / Technical</h2>
+						<p>An ongoing study of live sound: how a source becomes a usable signal, how a mix is routed, and how the system meets the room.</p>
+					</header>
+
+					<div class="spec-list" aria-label="Audio areas of interest">
+						<div><span>SOURCE</span><strong>Microphones / DI</strong></div>
+						<div><span>CONTROL</span><strong>Console / Processing</strong></div>
+						<div><span>ROUTING</span><strong>Main / Monitor</strong></div>
+						<div><span>OUTPUT</span><strong>PA / Room</strong></div>
+					</div>
+
+					<div class="flow-panel audio-flow" role="img" aria-label="Microphone signal flows into a console, then branches to monitor and PA systems">
+						<div class="flow-legend"><span>FIG.02</span><span>SIGNAL PATH</span></div>
+						<div class="audio-chain">
+							<div class="chain-node"><small>01</small><i></i><b>MIC / DI</b></div>
+							<div class="chain-link"><span>PREAMP</span></div>
+							<div class="chain-node active"><small>02</small><i></i><b>CONSOLE</b></div>
+							<div class="split-link"><span>MIX BUS</span></div>
+							<div class="output-pair">
+								<div><i></i><small>A</small><b>MONITOR</b></div>
+								<div><i></i><small>B</small><b>PA / ROOM</b></div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<section class="chapter about" id="about" aria-labelledby="about-title">
+					<div class="chapter-number" aria-hidden="true">03</div>
+					<header class="chapter-head">
+						<p class="eyebrow">OPERATOR / NOTES</p>
+						<h2 id="about-title">About</h2>
+					</header>
+
+					<div class="about-copy">
+						<p>I like systems that can be traced from input to output. That interest moves between software, self-hosted infrastructure, and live audio.</p>
+						<p>I use <strong>Python</strong> and <strong>Java</strong>, and prefer learning by operating real systems, documenting what changes, and understanding why they behave the way they do.</p>
+					</div>
+
+					<dl class="operator-table">
+						<div><dt>LOCATION</dt><dd>Seoul, KR</dd></div>
+						<div><dt>LANGUAGES</dt><dd>Python / Java</dd></div>
+						<div><dt>FIELDS</dt><dd>Infrastructure / Audio</dd></div>
+						<div><dt>STATUS</dt><dd><span class="status-dot"></span> Maintaining / Learning</dd></div>
+					</dl>
+				</section>
+			</main>
+
+			<footer>
+				<span>JIYOUNG.WIN</span>
+				<span>END OF FIELD NOTE / REV.01</span>
+				<a href="#top">RETURN TO INDEX ↑</a>
+			</footer>
+		</div>
+	</body>
+</html>
